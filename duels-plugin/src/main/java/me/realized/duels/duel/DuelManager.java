@@ -23,10 +23,8 @@ import me.realized.duels.data.MatchData;
 import me.realized.duels.data.UserData;
 import me.realized.duels.data.UserManagerImpl;
 import me.realized.duels.hook.hooks.CombatLogXHook;
-import me.realized.duels.hook.hooks.CombatTagPlusHook;
 import me.realized.duels.hook.hooks.EssentialsHook;
 import me.realized.duels.hook.hooks.McMMOHook;
-import me.realized.duels.hook.hooks.MyPetHook;
 import me.realized.duels.hook.hooks.PvPManagerHook;
 import me.realized.duels.hook.hooks.VaultHook;
 import me.realized.duels.hook.hooks.worldguard.WorldGuardHook;
@@ -88,14 +86,12 @@ public class DuelManager implements Loadable {
 
     private QueueManager queueManager;
     private Teleport teleport;
-    private CombatTagPlusHook combatTagPlus;
     private PvPManagerHook pvpManager;
     private CombatLogXHook combatLogX;
     private VaultHook vault;
     private EssentialsHook essentials;
     private McMMOHook mcMMO;
     private WorldGuardHook worldGuard;
-    private MyPetHook myPet;
     private int durationCheckTask;
 
     public DuelManager(final DuelsPlugin plugin) {
@@ -113,14 +109,12 @@ public class DuelManager implements Loadable {
     public void handleLoad() {
         this.queueManager = plugin.getQueueManager();
         this.teleport = plugin.getTeleport();
-        this.combatTagPlus = plugin.getHookManager().getHook(CombatTagPlusHook.class);
         this.pvpManager = plugin.getHookManager().getHook(PvPManagerHook.class);
         this.combatLogX = plugin.getHookManager().getHook(CombatLogXHook.class);
         this.vault = plugin.getHookManager().getHook(VaultHook.class);
         this.essentials = plugin.getHookManager().getHook(EssentialsHook.class);
         this.mcMMO = plugin.getHookManager().getHook(McMMOHook.class);
         this.worldGuard = plugin.getHookManager().getHook(WorldGuardHook.class);
-        this.myPet = plugin.getHookManager().getHook(MyPetHook.class);
 
         if (config.getMaxDuration() > 0) {
             this.durationCheckTask = plugin.doSyncRepeat(() -> {
@@ -411,9 +405,8 @@ public class DuelManager implements Loadable {
     }
 
     private boolean isTagged(final Player player) {
-        return (combatTagPlus != null && combatTagPlus.isTagged(player))
-            || (pvpManager != null && pvpManager.isTagged(player))
-            || (combatLogX != null && combatLogX.isTagged(player));
+        return (pvpManager != null && pvpManager.isTagged(player))
+                || (combatLogX != null && combatLogX.isTagged(player));
     }
 
     private boolean notInLoc(final Player player, final Location location) {
@@ -472,10 +465,6 @@ public class DuelManager implements Loadable {
                 } catch (Exception ex) {
                     Log.warn(this, "Error while running match start commands: " + ex.getMessage());
                 }
-            }
-
-            if (myPet != null) {
-                myPet.removePet(player);
             }
 
             if (essentials != null) {

@@ -58,6 +58,41 @@ subprojects {
             url 'https://repo.codemc.io/repository/maven-public/'
         }
 
+        maven {
+            name 'essentials-releases'
+            url 'https://repo.essentialsx.net/releases/'
+        }
+
+        maven {
+            name 'paper-repo'
+            url 'https://papermc.io/repo/repository/maven-public/'
+        }
+
+        maven {
+            name 'CodeMC'
+            url 'https://repo.codemc.org/repository/maven-public/'
+        }
+
+        maven {
+            name 'jitpack'
+            url 'https://jitpack.io'
+        }
+
+        maven {
+            name 'sirblobman-public'
+            url 'https://nexus.sirblobman.xyz/repository/public/'
+        }
+
+        maven {
+            name 'placeholderapi'
+            url 'https://repo.extendedclip.com/content/repositories/placeholderapi/'
+        }
+
+        maven {
+            name 'intellectualsites'
+            url 'https://mvn.intellectualsites.com/content/repositories/releases/'
+        }
+
         flatDir {
             dirs "$rootDir/libs/"
         }

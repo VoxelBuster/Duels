@@ -33,7 +33,6 @@ import me.realized.duels.data.QueueData;
 import me.realized.duels.data.UserData;
 import me.realized.duels.data.UserManagerImpl;
 import me.realized.duels.duel.DuelManager;
-import me.realized.duels.hook.hooks.CombatTagPlusHook;
 import me.realized.duels.hook.hooks.PvPManagerHook;
 import me.realized.duels.hook.hooks.VaultHook;
 import me.realized.duels.hook.hooks.worldguard.WorldGuardHook;
@@ -70,7 +69,6 @@ public class QueueManager implements Loadable, DQueueManager, Listener {
     private final File file;
     private final List<Queue> queues = new ArrayList<>();
 
-    private CombatTagPlusHook combatTagPlus;
     private PvPManagerHook pvpManager;
     private WorldGuardHook worldGuard;
     private VaultHook vault;
@@ -95,7 +93,6 @@ public class QueueManager implements Loadable, DQueueManager, Listener {
 
     @Override
     public void handleLoad() throws Exception {
-        this.combatTagPlus = plugin.getHookManager().getHook(CombatTagPlusHook.class);
         this.pvpManager = plugin.getHookManager().getHook(PvPManagerHook.class);
         this.worldGuard = plugin.getHookManager().getHook(WorldGuardHook.class);
         this.vault = plugin.getHookManager().getHook(VaultHook.class);
@@ -352,11 +349,6 @@ public class QueueManager implements Loadable, DQueueManager, Listener {
 
         if (config.isPreventCreativeMode() && (gameMode = player.getGameMode()) == GameMode.CREATIVE) {
             lang.sendMessage(player, "ERROR.duel.in-creative-mode");
-            return false;
-        }
-
-        if ((combatTagPlus != null && combatTagPlus.isTagged(player)) || (pvpManager != null && pvpManager.isTagged(player))) {
-            lang.sendMessage(player, "ERROR.duel.is-tagged");
             return false;
         }
 

@@ -24,20 +24,6 @@ processResources {
 
 dependencies {
     implementation 'org.projectlombok:lombok:1.18.22'
-    runtimeOnly 'me.clip:placeholderapi:2.10.5'
-    runtimeOnly('be.maximvdw:MVdWPlaceholderAPI:3.0.1-SNAPSHOT') { transitive = false }
-    runtimeOnly 'com.SirBlobman.combatlogx:CombatLogX-API:10.0.0.0-SNAPSHOT'
-    runtimeOnly name: 'Vault-1.6.7'
-    runtimeOnly name: 'EssentialsX'
-    runtimeOnly name: 'CombatTagPlus'
-    runtimeOnly name: 'PvPManager-3.7.16'
-    runtimeOnly name: 'Factions-1.6.9.5-U0.1.14'
-    runtimeOnly name: 'MassiveCore'
-    runtimeOnly name: 'Factions'
-    runtimeOnly name: 'MyPet-2.3.4'
-    runtimeOnly name: 'BountyHunters-2.2.6'
-    runtimeOnly name: 'SimpleClans-2.14.4.1'
-    runtimeOnly name: 'LeaderHeadsAPI'
 
     implementation project(':duels-worldguard')
     implementation project(':duels-worldguard-v6')
@@ -46,8 +32,27 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.9'
     implementation 'org.jetbrains:annotations:23.0.0'
     implementation 'org.inventivetalent.spiget-update:bukkit:1.4.3-SNAPSHOT'
-    implementation 'net.md-5:bungeecord-api:1.18-R0.1-SNAPSHOT'
-    implementation 'org.spigotmc:spigot-api:1.18.1-R0.1-SNAPSHOT'
+
+    compileOnly 'net.md-5:bungeecord-api:1.18-R0.1-SNAPSHOT'
+    compileOnly 'org.spigotmc:spigot-api:1.18.1-R0.1-SNAPSHOT'
+
+    compileOnly 'net.essentialsx:EssentialsX:2.19.0'
+    compileOnly 'me.NoChance.PvPManager:PvPManager:3.8.10'
+    compileOnly 'com.github.MilkBowl:VaultAPI:1.7'
+    compileOnly 'com.github.sirblobman.combatlogx:api:11.0.0.0-SNAPSHOT'
+    compileOnly 'me.clip:placeholderapi:2.11.1'
+    compileOnly 'be.maximvdw:MVdWPlaceholderAPI:3.1.1'
+    compileOnly 'net.sacredlabyrinth.phaed.simpleclans:SimpleClans:2.16.0'
+//    compileOnly 'com.github.Indyuce:bounty-hunters:master-SNAPSHOT'
+
+/* likely completely borked for 1.18 but we will keep them anyway to try and maintain as much feature parity as possible
+   may make easier in the future if the devs update their plugins.
+   -- these plugins have no live repository to pull from*/
+    compileOnly name: 'Factions'
+    compileOnly name: 'Factions-1.6.9.5-U0.1.14'
+    compileOnly name: 'BountyHunters-2.2.6'
+    compileOnly name: 'SimpleClans-2.14.4.1'
+    compileOnly name: 'LeaderHeadsAPI'
 
 }
 
