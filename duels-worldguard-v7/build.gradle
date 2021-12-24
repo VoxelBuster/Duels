@@ -10,7 +10,8 @@ version '3.4.0-SNAPSHOT'
 sourceCompatibility = 1.17
 
 dependencies {
-    implementation 'org.spigotmc:spigot-api:1.18.1-R0.1-SNAPSHOT'
-    implementation 'com.sk89q.worldguard:worldguard-bukkit:7.0.0'
+    compileOnly 'org.spigotmc:spigot-api:1.18.1-R0.1-SNAPSHOT'
+    compileOnly 'com.sk89q.worldguard:worldguard-bukkit:7.0.0'
+
     implementation project(':duels-worldguard')
 }
