@@ -379,8 +379,10 @@ public class DuelManager implements Loadable {
 
         if (config.isCdEnabled()) {
             final Map<UUID, OpponentInfo> info = new HashMap<>();
-            info.put(first.getUniqueId(), new OpponentInfo(second.getName(), getRating(kit, userDataManager.get(second))));
-            info.put(second.getUniqueId(), new OpponentInfo(first.getName(), getRating(kit, userDataManager.get(first))));
+            info.put(first.getUniqueId(),
+                    new OpponentInfo(second.getName(), getRating(kit, userDataManager.get(second))));
+            info.put(second.getUniqueId(),
+                    new OpponentInfo(first.getName(), getRating(kit, userDataManager.get(first))));
             arena.startCountdown(kit != null ? kit.getName() : lang.getMessage("GENERAL.none"), info);
         }
 
@@ -562,7 +564,7 @@ public class DuelManager implements Loadable {
         event.setCancelled(true);
     }
 
-    public class OpponentInfo {
+    public static class OpponentInfo {
 
         @Getter
         private final String name;

@@ -22,7 +22,7 @@ public class ArenaCreateEvent extends ArenaEvent {
     }
 
     @Override
-    public HandlerList getHandlers() {
+    public @NotNull HandlerList getHandlers() {
         return handlers;
     }
 }

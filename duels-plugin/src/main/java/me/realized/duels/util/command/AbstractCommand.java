@@ -16,6 +16,7 @@ import org.bukkit.command.PluginCommand;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
 
 public abstract class AbstractCommand<P extends JavaPlugin> implements TabCompleter {
 
@@ -161,12 +162,14 @@ public abstract class AbstractCommand<P extends JavaPlugin> implements TabComple
     }
 
     @Override
-    public List<String> onTabComplete(final CommandSender sender, final Command command, final String alias, final String[] args) {
+    public List<String> onTabComplete(final @NotNull CommandSender sender, final @NotNull Command command,
+                                      final @NotNull String alias, final String[] args) {
         if (args.length == 0) {
             return null;
         }
 
         if (args.length == 1 && children != null) {
+            //noinspection SimplifyStreamApiCallChains
             return children.values().stream()
                 .filter(child -> child.getName().startsWith(args[0].toLowerCase()))
                 .map(AbstractCommand::getName)

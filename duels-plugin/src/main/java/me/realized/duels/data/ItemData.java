@@ -167,10 +167,6 @@ public class ItemData {
                     color = DyeColor.getByColor(leatherArmorMeta.getColor()).name();
                 }
             }
-
-            if (!CompatUtil.isPre1_8() && (CompatUtil.isPre1_12() ? meta.isUnbreakable() : meta.isUnbreakable())) {
-                unbreakable = true;
-            }
         }
     }
 

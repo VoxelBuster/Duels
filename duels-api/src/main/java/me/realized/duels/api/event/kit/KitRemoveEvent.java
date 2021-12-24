@@ -26,7 +26,7 @@ public class KitRemoveEvent extends KitEvent {
     }
 
     @Override
-    public HandlerList getHandlers() {
+    public @NotNull HandlerList getHandlers() {
         return handlers;
     }
 }

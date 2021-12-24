@@ -40,7 +40,7 @@ public class RequestSendEvent extends RequestEvent implements Cancellable {
     }
 
     @Override
-    public HandlerList getHandlers() {
+    public @NotNull HandlerList getHandlers() {
         return handlers;
     }
 

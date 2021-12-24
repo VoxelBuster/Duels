@@ -53,7 +53,7 @@ public class QueueJoinEvent extends QueueEvent implements Cancellable {
     }
 
     @Override
-    public HandlerList getHandlers() {
+    public @NotNull HandlerList getHandlers() {
         return handlers;
     }
 }

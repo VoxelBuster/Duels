@@ -36,7 +36,7 @@ public class MatchStartEvent extends MatchEvent {
     }
 
     @Override
-    public HandlerList getHandlers() {
+    public @NotNull HandlerList getHandlers() {
         return handlers;
     }
 }

@@ -24,7 +24,7 @@ public class SpectateStartEvent extends SpectateEvent implements Cancellable {
     }
 
     @Override
-    public HandlerList getHandlers() {
+    public @NotNull HandlerList getHandlers() {
         return handlers;
     }
 

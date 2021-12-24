@@ -51,7 +51,7 @@ public class KitEquipEvent extends KitEvent implements Cancellable {
     }
 
     @Override
-    public HandlerList getHandlers() {
+    public @NotNull HandlerList getHandlers() {
         return handlers;
     }
 }

@@ -175,6 +175,7 @@ public class ArenaImpl extends BaseButton implements Arena {
         countdown.runTaskTimer(plugin, 0L, 20L);
     }
 
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     boolean isCounting() {
         return countdown != null;
     }

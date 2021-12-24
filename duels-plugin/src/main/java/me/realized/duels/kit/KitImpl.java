@@ -34,7 +34,7 @@ public class KitImpl extends BaseButton implements Kit {
     @Setter
     private boolean arenaSpecific;
     @Getter
-    private Set<Characteristic> characteristics;
+    private final Set<Characteristic> characteristics;
     @Getter
     @Setter(value = AccessLevel.PACKAGE)
     private boolean removed;
@@ -160,6 +160,6 @@ public class KitImpl extends BaseButton implements Kit {
         SOUP,
         SUMO,
         UHC,
-        COMBO;
+        COMBO
     }
 }

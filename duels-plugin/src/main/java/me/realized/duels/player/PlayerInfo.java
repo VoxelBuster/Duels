@@ -41,7 +41,7 @@ public class PlayerInfo {
 
     public void restore(final Player player) {
         player.addPotionEffects(effects);
-        player.setHealth(health > player.getMaxHealth() ? player.getMaxHealth() : health);
+        player.setHealth(Math.min(health, player.getMaxHealth()));
         player.setFoodLevel(hunger);
 
         if (armor.length > 0) {

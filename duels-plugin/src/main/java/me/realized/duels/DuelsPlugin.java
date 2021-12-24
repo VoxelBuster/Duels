@@ -300,7 +300,7 @@ public class DuelsPlugin extends JavaPlugin implements Duels, LogSource {
     }
 
     @SafeVarargs
-    private final void registerCommands(final AbstractCommand<DuelsPlugin>... commands) {
+    private void registerCommands(final AbstractCommand<DuelsPlugin>... commands) {
         for (final AbstractCommand<DuelsPlugin> command : commands) {
             this.commands.put(command.getName().toLowerCase(), command);
             command.register();
@@ -318,7 +318,7 @@ public class DuelsPlugin extends JavaPlugin implements Duels, LogSource {
             return false;
         }
 
-        result.child(new AbstractCommand<DuelsPlugin>(this, subCommand) {
+        result.child(new AbstractCommand<>(this, subCommand) {
             @Override
             protected void execute(final CommandSender sender, final String label, final String[] args) {
                 subCommand.execute(sender, label, args);

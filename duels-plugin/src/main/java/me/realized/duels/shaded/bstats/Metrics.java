@@ -14,13 +14,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.Callable;
 import java.util.logging.Level;
 import java.util.zip.GZIPOutputStream;
@@ -61,7 +55,7 @@ public class Metrics {
     private static final String URL = "https://bStats.org/submitData/bukkit";
 
     // Is bStats enabled on this server?
-    private boolean enabled;
+    private final boolean enabled;
 
     // Should failed requests be logged?
     private static boolean logFailedRequests;
@@ -118,11 +112,12 @@ public class Metrics {
             config.addDefault("logResponseStatusText", false);
 
             // Inform the server owners about bStats
-            config.options().header(
-                "bStats collects some data for plugin authors like how many servers are using their plugins.\n" +
-                    "To honor their work, you should not disable it.\n" +
-                    "This has nearly no effect on the server performance!\n" +
-                    "Check out https://bStats.org/ to learn more :)"
+            config.options().setHeader(
+                    Arrays.asList("bStats collects some data for plugin authors like how many servers are using their " +
+                            "plugins.\n",
+                            "To honor their work, you should not disable it.\n",
+                            "This has nearly no effect on the server performance!\n",
+                            "Check out https://bStats.org/ to learn more :)")
             ).copyDefaults(true);
             try {
                 config.save(configFile);
@@ -299,7 +294,7 @@ public class Metrics {
                                     Method jsonStringGetter = jsonObjectJsonSimple.getDeclaredMethod("toJSONString");
                                     jsonStringGetter.setAccessible(true);
                                     String jsonString = (String) jsonStringGetter.invoke(plugin);
-                                    JsonObject object = new JsonParser().parse(jsonString).getAsJsonObject();
+                                    JsonObject object = JsonParser.parseString(jsonString).getAsJsonObject();
                                     pluginData.add(object);
                                 }
                             } catch (ClassNotFoundException e) {

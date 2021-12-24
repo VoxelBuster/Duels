@@ -35,7 +35,7 @@ public class KitCreateEvent extends KitEvent {
     }
 
     @Override
-    public HandlerList getHandlers() {
+    public @NotNull HandlerList getHandlers() {
         return handlers;
     }
 }

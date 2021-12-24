@@ -81,7 +81,7 @@ public class ArenaSetPositionEvent extends ArenaEvent implements Cancellable {
     }
 
     @Override
-    public HandlerList getHandlers() {
+    public @NotNull HandlerList getHandlers() {
         return handlers;
     }
 }

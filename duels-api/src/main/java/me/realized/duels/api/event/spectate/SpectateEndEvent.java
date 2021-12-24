@@ -21,7 +21,7 @@ public class SpectateEndEvent extends SpectateEvent {
     }
 
     @Override
-    public HandlerList getHandlers() {
+    public @NotNull HandlerList getHandlers() {
         return handlers;
     }
 }

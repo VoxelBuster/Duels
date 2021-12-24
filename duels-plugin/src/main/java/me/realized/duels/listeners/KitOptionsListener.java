@@ -118,7 +118,7 @@ public class KitOptionsListener implements Listener {
 
         final double regen = config.getSoupHeartsToRegen() * 2.0;
         final double oldHealth = player.getHealth();
-        player.setHealth(oldHealth + regen > player.getMaxHealth() ? player.getMaxHealth() : oldHealth + regen);
+        player.setHealth(Math.min(oldHealth + regen, player.getMaxHealth()));
     }
 
     @EventHandler(ignoreCancelled = true)

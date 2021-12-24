@@ -36,7 +36,7 @@ public class UserData implements User {
     private boolean requests = true;
 
     private ConcurrentHashMap<String, Integer> rating;
-    private List<MatchData> matches = new ArrayList<>();
+    private final List<MatchData> matches = new ArrayList<>();
 
     transient DuelsPlugin plugin;
     transient File folder;
@@ -44,6 +44,7 @@ public class UserData implements User {
     transient int matchesToDisplay;
 
     // for Gson
+    @SuppressWarnings("unused")
     private UserData() {}
 
     public UserData(final DuelsPlugin plugin, final File folder, final int defaultRating, final int matchesToDisplay, final Player player) {

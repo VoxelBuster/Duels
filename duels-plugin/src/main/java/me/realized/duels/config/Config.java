@@ -366,7 +366,8 @@ public class Config extends AbstractConfiguration<DuelsPlugin> {
                     continue;
                 }
 
-                this.sounds.put(name, new MessageSound(type, sound.getDouble("pitch"), sound.getDouble("volume"), sound.getStringList("trigger-messages")));
+                this.sounds.put(name, new MessageSound(type, sound.getDouble("pitch"), sound.getDouble("volume"),
+                        sound.getStringList("trigger-messages")));
             }
         }
     }
@@ -385,7 +386,7 @@ public class Config extends AbstractConfiguration<DuelsPlugin> {
         return sounds.keySet();
     }
 
-    public class MessageSound {
+    public static class MessageSound {
 
         @Getter
         private final Sound type;

@@ -29,8 +29,6 @@ import org.bukkit.entity.Player;
 
 public class DuelCommand extends BaseCommand {
 
-    private final PvPManagerHook pvpManager;
-    private final CombatLogXHook combatLogX;
     private final WorldGuardHook worldGuard;
     private final VaultHook vault;
 
@@ -45,8 +43,6 @@ public class DuelCommand extends BaseCommand {
             new InventoryCommand(plugin),
             new VersionCommand(plugin)
         );
-        this.pvpManager = hookManager.getHook(PvPManagerHook.class);
-        this.combatLogX = hookManager.getHook(CombatLogXHook.class);
         this.worldGuard = hookManager.getHook(WorldGuardHook.class);
         this.vault = hookManager.getHook(VaultHook.class);
     }

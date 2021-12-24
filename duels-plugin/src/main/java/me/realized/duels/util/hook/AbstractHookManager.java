@@ -30,11 +30,11 @@ public abstract class AbstractHookManager<P extends JavaPlugin> {
 
             plugin.getLogger().info("Successfully hooked into '" + name + "'!");
         } catch (Throwable throwable) {
-            if (throwable.getCause() != null) {
-                throwable = throwable.getCause();
+            if (throwable.getCause() == null) {
+                plugin.getLogger().warning("Failed to hook into plugin.");
             }
 
-            plugin.getLogger().warning("Failed to hook into " + name + ": " + throwable.getMessage());
+            plugin.getLogger().warning("Failed to hook into " + name + ": " + throwable.getCause().getMessage());
         }
     }
 

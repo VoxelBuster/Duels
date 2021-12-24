@@ -41,7 +41,7 @@ public class QueueLeaveEvent extends QueueEvent {
     }
 
     @Override
-    public HandlerList getHandlers() {
+    public @NotNull HandlerList getHandlers() {
         return handlers;
     }
 }

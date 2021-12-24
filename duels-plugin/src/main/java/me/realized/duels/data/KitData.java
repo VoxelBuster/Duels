@@ -16,10 +16,11 @@ public class KitData {
     private ItemData displayed;
     private boolean usePermission;
     private boolean arenaSpecific;
-    private Set<Characteristic> characteristics = new HashSet<>();
-    private Map<String, Map<Integer, ItemData>> items = new HashMap<>();
+    private final Set<Characteristic> characteristics = new HashSet<>();
+    private final Map<String, Map<Integer, ItemData>> items = new HashMap<>();
 
     // for Gson
+    @SuppressWarnings("unused")
     private KitData() {}
 
     public KitData(final KitImpl kit) {

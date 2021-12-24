@@ -34,8 +34,8 @@ import org.bukkit.scheduler.BukkitRunnable;
 public class BettingGui extends AbstractGui<DuelsPlugin> {
 
     private final Section[] sections = {
-        new Section(9, 13, 4),
-        new Section(14, 18, 4)
+        new Section(9, 13),
+        new Section(14, 18)
     };
     private final GuiListener<DuelsPlugin> guiListener;
     private final DuelManager duelManager;
@@ -217,10 +217,10 @@ public class BettingGui extends AbstractGui<DuelsPlugin> {
 
         private final int start, end, height;
 
-        Section(final int start, final int end, final int height) {
+        Section(final int start, final int end) {
             this.start = start;
             this.end = end;
-            this.height = height;
+            this.height = 4;
         }
 
         private boolean isPart(final int slot) {

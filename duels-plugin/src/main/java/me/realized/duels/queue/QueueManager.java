@@ -69,7 +69,6 @@ public class QueueManager implements Loadable, DQueueManager, Listener {
     private final File file;
     private final List<Queue> queues = new ArrayList<>();
 
-    private PvPManagerHook pvpManager;
     private WorldGuardHook worldGuard;
     private VaultHook vault;
     private int queueTask;
@@ -93,7 +92,6 @@ public class QueueManager implements Loadable, DQueueManager, Listener {
 
     @Override
     public void handleLoad() throws Exception {
-        this.pvpManager = plugin.getHookManager().getHook(PvPManagerHook.class);
         this.worldGuard = plugin.getHookManager().getHook(WorldGuardHook.class);
         this.vault = plugin.getHookManager().getHook(VaultHook.class);
 

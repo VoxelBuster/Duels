@@ -62,7 +62,7 @@ public class MatchEndEvent extends MatchEvent {
     }
 
     @Override
-    public HandlerList getHandlers() {
+    public @NotNull HandlerList getHandlers() {
         return handlers;
     }
 

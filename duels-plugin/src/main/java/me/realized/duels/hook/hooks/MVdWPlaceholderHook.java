@@ -41,16 +41,13 @@ public class MVdWPlaceholderHook extends PluginHook<DuelsPlugin> {
                 return null;
             }
 
-            switch (event.getPlaceholder()) {
-                case "duels_wins":
-                    return String.valueOf(user.getWins());
-                case "duels_losses":
-                    return String.valueOf(user.getLosses());
-                case "duels_can_request":
-                    return String.valueOf(user.canRequest());
-            }
+            return switch (event.getPlaceholder()) {
+                case "duels_wins" -> String.valueOf(user.getWins());
+                case "duels_losses" -> String.valueOf(user.getLosses());
+                case "duels_can_request" -> String.valueOf(user.canRequest());
+                default -> null;
+            };
 
-            return null;
         }
     }
 }

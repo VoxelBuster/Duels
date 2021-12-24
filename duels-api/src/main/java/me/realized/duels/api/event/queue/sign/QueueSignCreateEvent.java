@@ -23,7 +23,7 @@ public class QueueSignCreateEvent extends QueueSignEvent {
     }
 
     @Override
-    public HandlerList getHandlers() {
+    public @NotNull HandlerList getHandlers() {
         return handlers;
     }
 }

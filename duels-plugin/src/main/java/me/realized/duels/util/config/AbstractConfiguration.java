@@ -129,7 +129,7 @@ public abstract class AbstractConfiguration<P extends JavaPlugin> implements Loa
             }
 
             configuration = YamlConfiguration.loadConfiguration(file);
-            configuration.options().header(null);
+            configuration.options().setHeader(Collections.emptyList());
 
             // Transfer values from the old configuration
             for (Map.Entry<String, Object> entry : oldValues.entrySet()) {

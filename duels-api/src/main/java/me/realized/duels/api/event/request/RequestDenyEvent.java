@@ -24,7 +24,7 @@ public class RequestDenyEvent extends RequestEvent {
     }
 
     @Override
-    public HandlerList getHandlers() {
+    public @NotNull HandlerList getHandlers() {
         return handlers;
     }
 
