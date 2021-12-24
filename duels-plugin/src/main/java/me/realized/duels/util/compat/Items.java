@@ -43,7 +43,7 @@ public final class Items {
         MUSHROOM_SOUP = CompatUtil.isPre1_13() ? Material.matchMaterial("MUSHROOM_SOUP") : Material.MUSHROOM_STEW;
         EMPTY_MAP = CompatUtil.isPre1_13() ? Material.matchMaterial("EMPTY_MAP") : Material.MAP;
         BARRIER = CompatUtil.isPre1_8() ? Material.matchMaterial("REDSTONE_BLOCK") : Material.BARRIER;
-        SIGN = CompatUtil.isPre1_14() ? Material.SIGN : Material.matchMaterial("OAK_SIGN");
+        SIGN = CompatUtil.isPre1_14() ? Material.OAK_SIGN : Material.matchMaterial("OAK_SIGN");
         HEAL_SPLASH_POTION = (CompatUtil.isPre1_9() ? ItemBuilder.of(Material.POTION, 1, (short) 16421) : ItemBuilder.of(Material.SPLASH_POTION).potion(
             PotionType.INSTANT_HEAL, false, true)).build();
         WATER_BREATHING_POTION = (CompatUtil.isPre1_9() ? ItemBuilder.of(Material.POTION, 1, (short) 8237) : ItemBuilder.of(Material.POTION).potion(

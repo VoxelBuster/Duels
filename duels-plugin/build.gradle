@@ -16,6 +16,8 @@ tasks.withType(ShadowJar) {
 }
 
 processResources {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+
     from(sourceSets.main.resources.srcDirs) {
         include '**/*.yml'
         filter(ReplaceTokens, tokens: [VERSION: project.version])
@@ -23,7 +25,8 @@ processResources {
 }
 
 dependencies {
-    implementation 'org.projectlombok:lombok:1.18.22'
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
 
     implementation project(':duels-worldguard')
     implementation project(':duels-worldguard-v6')
@@ -48,6 +51,7 @@ dependencies {
 /* likely completely borked for 1.18 but we will keep them anyway to try and maintain as much feature parity as possible
    may make easier in the future if the devs update their plugins.
    -- these plugins have no live repository to pull from*/
+    compileOnly name: 'MassiveCore'
     compileOnly name: 'Factions'
     compileOnly name: 'Factions-1.6.9.5-U0.1.14'
     compileOnly name: 'BountyHunters-2.2.6'

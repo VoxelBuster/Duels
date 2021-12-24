@@ -168,7 +168,7 @@ public class ItemData {
                 }
             }
 
-            if (!CompatUtil.isPre1_8() && (CompatUtil.isPre1_12() ? meta.spigot().isUnbreakable() : meta.isUnbreakable())) {
+            if (!CompatUtil.isPre1_8() && (CompatUtil.isPre1_12() ? meta.isUnbreakable() : meta.isUnbreakable())) {
                 unbreakable = true;
             }
         }
@@ -265,11 +265,8 @@ public class ItemData {
         }
 
         if (!CompatUtil.isPre1_8() && unbreakable) {
-            if (CompatUtil.isPre1_12()) {
-                meta.spigot().setUnbreakable(true);
-            } else {
-                meta.setUnbreakable(true);
-            }
+            assert meta != null;
+            meta.setUnbreakable(true);
         }
 
         item.setItemMeta(meta);
