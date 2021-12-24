@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
-import javax.annotation.Nonnull;
+import org.jetbrains.annotations.NotNull;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -85,7 +85,7 @@ public class KitImpl extends BaseButton implements Kit {
     }
 
     // Never-null since if null item is passed to the constructor, a default item is passed to super
-    @Nonnull
+    @NotNull
     public ItemStack getDisplayed() {
         return super.getDisplayed();
     }
@@ -103,7 +103,7 @@ public class KitImpl extends BaseButton implements Kit {
     }
 
     @Override
-    public boolean equip(@Nonnull final Player player) {
+    public boolean equip(@NotNull final Player player) {
         Objects.requireNonNull(player, "player");
         final KitEquipEvent event = new KitEquipEvent(player, this);
         plugin.getServer().getPluginManager().callEvent(event);

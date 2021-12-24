@@ -1,7 +1,7 @@
 package me.realized.duels.api.event.queue.sign;
 
 import java.util.Objects;
-import javax.annotation.Nonnull;
+import org.jetbrains.annotations.NotNull;
 import me.realized.duels.api.event.SourcedEvent;
 import me.realized.duels.api.queue.sign.QueueSign;
 import org.bukkit.entity.Player;
@@ -16,7 +16,7 @@ public abstract class QueueSignEvent extends SourcedEvent {
     private final Player source;
     private final QueueSign queueSign;
 
-    QueueSignEvent(@Nonnull final Player source, @Nonnull final QueueSign queueSign) {
+    QueueSignEvent(@NotNull final Player source, @NotNull final QueueSign queueSign) {
         super(source);
         Objects.requireNonNull(source, "source");
         Objects.requireNonNull(queueSign, "queueSign");
@@ -29,7 +29,7 @@ public abstract class QueueSignEvent extends SourcedEvent {
      *
      * @return Never-null {@link Player} who is the source of this event.
      */
-    @Nonnull
+    @NotNull
     @Override
     public Player getSource() {
         return source;
@@ -40,7 +40,7 @@ public abstract class QueueSignEvent extends SourcedEvent {
      *
      * @return Never-null {@link QueueSign} instance associated with this event.
      */
-    @Nonnull
+    @NotNull
     public QueueSign getQueueSign() {
         return queueSign;
     }

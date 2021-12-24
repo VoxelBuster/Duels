@@ -1,27 +1,32 @@
 buildscript {
     repositories {
-        jcenter()
+        google()
+        mavenCentral()
     }
+}
 
-    dependencies {
-        classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.4'
-    }
+plugins {
+    id 'maven-publish'
+    id 'java'
+    id "com.github.johnrengelman.shadow" version "7.1.1"
 }
 
 allprojects {
     group 'me.realized'
-    version '3.4.1'
+    version '3.5.0'
 }
 
 subprojects {
-    apply plugin: 'java'
-    apply plugin: 'com.github.johnrengelman.shadow'
-
-    sourceCompatibility = 1.8
-    targetCompatibility = 1.8
+    sourceCompatibility = 1.17
+    targetCompatibility = 1.17
 
     repositories {
         mavenCentral()
+
+        maven {
+            name 'bungeecord-repo'
+            url 'https://oss.sonatype.org/content/repositories/snapshots'
+        }
 
         maven {
             name 'spigot-repo'
@@ -29,23 +34,18 @@ subprojects {
         }
 
         maven {
-            name 'bungeecord-repo'
-            url 'https://oss.sonatype.org/content/repositories/snapshots/'
-        }
-
-        maven {
             name 'mvdw-repo'
-            url 'http://repo.mvdw-software.com/content/groups/public/'
+            url 'https://repo.mvdw-software.com/content/groups/public/'
         }
 
         maven {
             name 'clip-repo'
-            url 'http://repo.extendedclip.com/content/repositories/placeholderapi/'
+            url 'https://repo.extendedclip.com/content/repositories/placeholderapi/'
         }
 
         maven {
             name 'sk89q-repo'
-            url 'http://maven.sk89q.com/repo/'
+            url 'https://maven.sk89q.com/repo/'
         }
 
         maven {

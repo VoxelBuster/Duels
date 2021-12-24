@@ -16,8 +16,8 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import lombok.Getter;
 import me.realized.duels.DuelsPlugin;
 import me.realized.duels.api.arena.Arena;
@@ -143,14 +143,14 @@ public class ArenaManagerImpl implements Loadable, ArenaManager, Listener {
 
     @Nullable
     @Override
-    public ArenaImpl get(@Nonnull final String name) {
+    public ArenaImpl get(@NotNull final String name) {
         Objects.requireNonNull(name, "name");
         return arenas.stream().filter(arena -> arena.getName().equals(name)).findFirst().orElse(null);
     }
 
     @Nullable
     @Override
-    public ArenaImpl get(@Nonnull final Player player) {
+    public ArenaImpl get(@NotNull final Player player) {
         Objects.requireNonNull(player, "player");
         return arenas.stream().filter(arena -> arena.has(player)).findFirst().orElse(null);
     }
@@ -183,7 +183,7 @@ public class ArenaManagerImpl implements Loadable, ArenaManager, Listener {
     }
 
     @Override
-    public boolean isInMatch(@Nonnull final Player player) {
+    public boolean isInMatch(@NotNull final Player player) {
         Objects.requireNonNull(player, "player");
         return get(player) != null;
     }
@@ -192,7 +192,7 @@ public class ArenaManagerImpl implements Loadable, ArenaManager, Listener {
         return arenas;
     }
 
-    @Nonnull
+    @NotNull
     @Override
     public List<Arena> getArenas() {
         return Collections.unmodifiableList(arenas);

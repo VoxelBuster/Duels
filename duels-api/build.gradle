@@ -1,10 +1,17 @@
+plugins {
+    id 'maven-publish'
+    id 'java'
+    id "com.github.johnrengelman.shadow"
+}
+
 dependencies {
-    compile 'com.google.code.findbugs:jsr305:3.0.2'
-    compile 'org.spigotmc:spigot-api:1.13.2-R0.1-SNAPSHOT'
+    runtimeOnly 'com.google.code.findbugs:jsr305:3.0.2'
+    implementation 'org.jetbrains:annotations:23.0.0'
+    implementation 'org.spigotmc:spigot-api:1.18.1-R0.1-SNAPSHOT'
 }
 
 shadowJar {
-    archiveName = project.name + '-' + project.version + '.jar'
+    archiveFileName = project.name + '-' + project.version + '.jar'
 }
 
 build.dependsOn(shadowJar)

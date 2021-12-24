@@ -1,7 +1,7 @@
 package me.realized.duels.api.event.match;
 
 import java.util.Objects;
-import javax.annotation.Nonnull;
+import org.jetbrains.annotations.NotNull;
 import me.realized.duels.api.match.Match;
 import org.bukkit.entity.Player;
 import org.bukkit.event.HandlerList;
@@ -15,7 +15,7 @@ public class MatchStartEvent extends MatchEvent {
 
     private final Player[] players;
 
-    public MatchStartEvent(@Nonnull final Match match, @Nonnull final Player... players) {
+    public MatchStartEvent(@NotNull final Match match, @NotNull final Player... players) {
         super(match);
         Objects.requireNonNull(players, "players");
         this.players = players;
@@ -26,7 +26,7 @@ public class MatchStartEvent extends MatchEvent {
      *
      * @return Never-null {@link Player} array representing the starters of the {@link Match}.
      */
-    @Nonnull
+    @NotNull
     public Player[] getPlayers() {
         return players;
     }

@@ -1,6 +1,6 @@
 package me.realized.duels.api.event.spectate;
 
-import javax.annotation.Nonnull;
+import org.jetbrains.annotations.NotNull;
 import me.realized.duels.api.spectate.Spectator;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Cancellable;
@@ -15,7 +15,7 @@ public class SpectateStartEvent extends SpectateEvent implements Cancellable {
 
     private boolean cancelled;
 
-    public SpectateStartEvent(@Nonnull final Player source, @Nonnull final Spectator spectator) {
+    public SpectateStartEvent(@NotNull final Player source, @NotNull final Spectator spectator) {
         super(source, spectator);
     }
 

@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.logging.Level;
 import java.util.stream.Collectors;
-import javax.annotation.Nonnull;
+import org.jetbrains.annotations.NotNull;
 import lombok.Getter;
 import me.realized.duels.api.Duels;
 import me.realized.duels.api.command.SubCommand;
@@ -308,7 +308,7 @@ public class DuelsPlugin extends JavaPlugin implements Duels, LogSource {
     }
 
     @Override
-    public boolean registerSubCommand(@Nonnull final String command, @Nonnull final SubCommand subCommand) {
+    public boolean registerSubCommand(@NotNull final String command, @NotNull final SubCommand subCommand) {
         Objects.requireNonNull(command, "command");
         Objects.requireNonNull(subCommand, "subCommand");
 
@@ -328,7 +328,7 @@ public class DuelsPlugin extends JavaPlugin implements Duels, LogSource {
     }
 
     @Override
-    public void registerListener(@Nonnull final Listener listener) {
+    public void registerListener(@NotNull final Listener listener) {
         Objects.requireNonNull(listener, "listener");
         registeredListeners.add(listener);
         getServer().getPluginManager().registerEvents(listener, this);
@@ -365,43 +365,43 @@ public class DuelsPlugin extends JavaPlugin implements Duels, LogSource {
     }
 
     @Override
-    public BukkitTask doSync(@Nonnull final Runnable task) {
+    public BukkitTask doSync(@NotNull final Runnable task) {
         Objects.requireNonNull(task, "task");
         return getServer().getScheduler().runTask(this, task);
     }
 
     @Override
-    public BukkitTask doSyncAfter(@Nonnull final Runnable task, final long delay) {
+    public BukkitTask doSyncAfter(@NotNull final Runnable task, final long delay) {
         Objects.requireNonNull(task, "task");
         return getServer().getScheduler().runTaskLater(this, task, delay);
     }
 
     @Override
-    public BukkitTask doSyncRepeat(@Nonnull final Runnable task, final long delay, final long period) {
+    public BukkitTask doSyncRepeat(@NotNull final Runnable task, final long delay, final long period) {
         Objects.requireNonNull(task, "task");
         return getServer().getScheduler().runTaskTimer(this, task, delay, period);
     }
 
     @Override
-    public BukkitTask doAsync(@Nonnull final Runnable task) {
+    public BukkitTask doAsync(@NotNull final Runnable task) {
         Objects.requireNonNull(task, "task");
         return getServer().getScheduler().runTaskAsynchronously(this, task);
     }
 
     @Override
-    public BukkitTask doAsyncAfter(@Nonnull final Runnable task, final long delay) {
+    public BukkitTask doAsyncAfter(@NotNull final Runnable task, final long delay) {
         Objects.requireNonNull(task, "task");
         return getServer().getScheduler().runTaskLaterAsynchronously(this, task, delay);
     }
 
     @Override
-    public BukkitTask doAsyncRepeat(@Nonnull final Runnable task, final long delay, final long period) {
+    public BukkitTask doAsyncRepeat(@NotNull final Runnable task, final long delay, final long period) {
         Objects.requireNonNull(task, "task");
         return getServer().getScheduler().runTaskTimerAsynchronously(this, task, delay, period);
     }
 
     @Override
-    public void cancelTask(@Nonnull final BukkitTask task) {
+    public void cancelTask(@NotNull final BukkitTask task) {
         Objects.requireNonNull(task, "task");
         task.cancel();
     }
@@ -412,25 +412,25 @@ public class DuelsPlugin extends JavaPlugin implements Duels, LogSource {
     }
 
     @Override
-    public void info(@Nonnull final String message) {
+    public void info(@NotNull final String message) {
         Objects.requireNonNull(message, "message");
         Log.info(message);
     }
 
     @Override
-    public void warn(@Nonnull final String message) {
+    public void warn(@NotNull final String message) {
         Objects.requireNonNull(message, "message");
         Log.warn(message);
     }
 
     @Override
-    public void error(@Nonnull final String message) {
+    public void error(@NotNull final String message) {
         Objects.requireNonNull(message, "message");
         Log.error(message);
     }
 
     @Override
-    public void error(@Nonnull final String message, @Nonnull final Throwable thrown) {
+    public void error(@NotNull final String message, @NotNull final Throwable thrown) {
         Objects.requireNonNull(message, "message");
         Objects.requireNonNull(thrown, "thrown");
         Log.error(message, thrown);

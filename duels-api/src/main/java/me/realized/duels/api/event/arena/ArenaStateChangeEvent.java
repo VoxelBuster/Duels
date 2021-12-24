@@ -1,7 +1,7 @@
 package me.realized.duels.api.event.arena;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import me.realized.duels.api.arena.Arena;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Cancellable;
@@ -19,7 +19,7 @@ public class ArenaStateChangeEvent extends ArenaEvent implements Cancellable {
     private boolean disabled;
     private boolean cancelled;
 
-    public ArenaStateChangeEvent(@Nullable final CommandSender source, @Nonnull final Arena arena, final boolean disabled) {
+    public ArenaStateChangeEvent(@Nullable final CommandSender source, @NotNull final Arena arena, final boolean disabled) {
         super(source, arena);
         this.disabled = disabled;
     }

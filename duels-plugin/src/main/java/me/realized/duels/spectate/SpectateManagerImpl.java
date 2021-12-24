@@ -11,8 +11,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 import java.util.stream.Collectors;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import me.realized.duels.DuelsPlugin;
 import me.realized.duels.Permissions;
 import me.realized.duels.api.arena.Arena;
@@ -99,20 +99,20 @@ public class SpectateManagerImpl implements Loadable, SpectateManager {
 
     @Nullable
     @Override
-    public SpectatorImpl get(@Nonnull final Player player) {
+    public SpectatorImpl get(@NotNull final Player player) {
         Objects.requireNonNull(player, "player");
         return spectators.get(player.getUniqueId());
     }
 
     @Override
-    public boolean isSpectating(@Nonnull final Player player) {
+    public boolean isSpectating(@NotNull final Player player) {
         Objects.requireNonNull(player, "player");
         return get(player) != null;
     }
 
-    @Nonnull
+    @NotNull
     @Override
-    public Result startSpectating(@Nonnull final Player player, @Nonnull final Player target) {
+    public Result startSpectating(@NotNull final Player player, @NotNull final Player target) {
         Objects.requireNonNull(player, "player");
         Objects.requireNonNull(target, "target");
 
@@ -235,7 +235,7 @@ public class SpectateManagerImpl implements Loadable, SpectateManager {
      * @see #stopSpectating(Player, SpectatorImpl)
      */
     @Override
-    public void stopSpectating(@Nonnull final Player player) {
+    public void stopSpectating(@NotNull final Player player) {
         Objects.requireNonNull(player, "player");
         stopSpectating(player, get(player));
     }
@@ -264,9 +264,9 @@ public class SpectateManagerImpl implements Loadable, SpectateManager {
         });
     }
 
-    @Nonnull
+    @NotNull
     @Override
-    public List<Spectator> getSpectators(@Nonnull final Arena arena) {
+    public List<Spectator> getSpectators(@NotNull final Arena arena) {
         Objects.requireNonNull(arena, "arena");
         return Collections.unmodifiableList(Lists.newArrayList(getSpectatorsImpl(arena)));
     }

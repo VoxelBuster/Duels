@@ -1,12 +1,18 @@
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import org.apache.tools.ant.filters.ReplaceTokens
 
+plugins {
+    id 'maven-publish'
+    id 'java'
+    id "com.github.johnrengelman.shadow"
+}
+
 clean.doFirst {
     delete "$rootDir/out/"
 }
 
 tasks.withType(ShadowJar) {
-    destinationDir = file("$rootDir/out/")
+    destinationDirectory = file("$rootDir/out/")
 }
 
 processResources {
@@ -17,32 +23,36 @@ processResources {
 }
 
 dependencies {
-    compile 'org.projectlombok:lombok:1.16.20'
-    compile 'me.clip:placeholderapi:2.10.5'
-    compile('be.maximvdw:MVdWPlaceholderAPI:3.0.1-SNAPSHOT') { transitive = false }
-    compile 'com.SirBlobman.combatlogx:CombatLogX-API:10.0.0.0-SNAPSHOT'
-    compile name: 'Vault-1.6.7'
-    compile name: 'EssentialsX'
-    compile name: 'CombatTagPlus'
-    compile name: 'PvPManager-3.7.16'
-    compile name: 'Factions-1.6.9.5-U0.1.14'
-    compile name: 'MassiveCore'
-    compile name: 'Factions'
-    compile name: 'MyPet-2.3.4'
-    compile name: 'BountyHunters-2.2.6'
-    compile name: 'SimpleClans-2.14.4.1'
-    compile name: 'LeaderHeadsAPI'
+    implementation 'org.projectlombok:lombok:1.18.22'
+    runtimeOnly 'me.clip:placeholderapi:2.10.5'
+    runtimeOnly('be.maximvdw:MVdWPlaceholderAPI:3.0.1-SNAPSHOT') { transitive = false }
+    runtimeOnly 'com.SirBlobman.combatlogx:CombatLogX-API:10.0.0.0-SNAPSHOT'
+    runtimeOnly name: 'Vault-1.6.7'
+    runtimeOnly name: 'EssentialsX'
+    runtimeOnly name: 'CombatTagPlus'
+    runtimeOnly name: 'PvPManager-3.7.16'
+    runtimeOnly name: 'Factions-1.6.9.5-U0.1.14'
+    runtimeOnly name: 'MassiveCore'
+    runtimeOnly name: 'Factions'
+    runtimeOnly name: 'MyPet-2.3.4'
+    runtimeOnly name: 'BountyHunters-2.2.6'
+    runtimeOnly name: 'SimpleClans-2.14.4.1'
+    runtimeOnly name: 'LeaderHeadsAPI'
 
-    compile project(':duels-worldguard')
-    compile project(':duels-worldguard-v6')
-    compile project(':duels-worldguard-v7')
-    compile project(':duels-api')
-    compile 'com.google.code.gson:gson:2.8.2'
-    compile 'org.inventivetalent.spiget-update:bukkit:1.4.2-SNAPSHOT'
+    implementation project(':duels-worldguard')
+    implementation project(':duels-worldguard-v6')
+    implementation project(':duels-worldguard-v7')
+    implementation project(':duels-api')
+    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation 'org.jetbrains:annotations:23.0.0'
+    implementation 'org.inventivetalent.spiget-update:bukkit:1.4.3-SNAPSHOT'
+    implementation 'net.md-5:bungeecord-api:1.18-R0.1-SNAPSHOT'
+    implementation 'org.spigotmc:spigot-api:1.18.1-R0.1-SNAPSHOT'
+
 }
 
 shadowJar {
-    archiveName = parent.name + '-' + project.version + '.jar'
+    archiveFileName = parent.name + '-' + project.version + '.jar'
 
     dependencies {
         include(dependency(':duels-worldguard'))

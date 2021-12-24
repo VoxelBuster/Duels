@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
-import javax.annotation.Nonnull;
+import org.jetbrains.annotations.NotNull;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -43,11 +43,11 @@ public class Queue extends BaseButton implements DQueue {
     }
 
     @Override
-    public boolean isInQueue(@Nonnull final Player player) {
+    public boolean isInQueue(@NotNull final Player player) {
         return players.stream().anyMatch(entry -> entry.getPlayer().equals(player));
     }
 
-    @Nonnull
+    @NotNull
     @Override
     public List<Player> getQueuedPlayers() {
         return Collections.unmodifiableList(players.stream().sequential().map(QueueEntry::getPlayer).collect(Collectors.toList()));

@@ -1,7 +1,7 @@
 package me.realized.duels.api.event.match;
 
 import java.util.Objects;
-import javax.annotation.Nonnull;
+import org.jetbrains.annotations.NotNull;
 import me.realized.duels.api.match.Match;
 import org.bukkit.event.Event;
 
@@ -12,7 +12,7 @@ public abstract class MatchEvent extends Event {
 
     private final Match match;
 
-    MatchEvent(@Nonnull final Match match) {
+    MatchEvent(@NotNull final Match match) {
         Objects.requireNonNull(match, "match");
         this.match = match;
     }

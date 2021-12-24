@@ -1,7 +1,7 @@
 package me.realized.duels.api.event.queue;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import me.realized.duels.api.kit.Kit;
 import me.realized.duels.api.queue.DQueue;
 import me.realized.duels.api.queue.DQueueManager;
@@ -19,7 +19,7 @@ public class QueueRemoveEvent extends QueueEvent {
 
     private static final HandlerList handlers = new HandlerList();
 
-    public QueueRemoveEvent(@Nullable final CommandSender source, @Nonnull final DQueue queue) {
+    public QueueRemoveEvent(@Nullable final CommandSender source, @NotNull final DQueue queue) {
         super(source, queue);
     }
 

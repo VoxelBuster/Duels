@@ -1,7 +1,7 @@
 package me.realized.duels.api.event.user;
 
 import java.util.Objects;
-import javax.annotation.Nonnull;
+import org.jetbrains.annotations.NotNull;
 import me.realized.duels.api.user.User;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
@@ -15,7 +15,7 @@ public class UserCreateEvent extends Event {
 
     private final User user;
 
-    public UserCreateEvent(@Nonnull final User user) {
+    public UserCreateEvent(@NotNull final User user) {
         Objects.requireNonNull(user, "user");
         this.user = user;
     }
@@ -25,7 +25,7 @@ public class UserCreateEvent extends Event {
      *
      * @return Never-null {@link User} that was created.
      */
-    @Nonnull
+    @NotNull
     public User getUser() {
         return user;
     }

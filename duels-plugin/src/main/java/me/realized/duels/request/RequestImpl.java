@@ -1,7 +1,7 @@
 package me.realized.duels.request;
 
 import java.util.UUID;
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.Nullable;
 import lombok.Getter;
 import me.realized.duels.api.arena.Arena;
 import me.realized.duels.api.kit.Kit;

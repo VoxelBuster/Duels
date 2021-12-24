@@ -9,8 +9,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -68,7 +68,7 @@ public class ArenaImpl extends BaseButton implements Arena {
     }
 
     @Override
-    public boolean setPosition(@Nullable final Player source, final int pos, @Nonnull final Location location) {
+    public boolean setPosition(@Nullable final Player source, final int pos, @NotNull final Location location) {
         Objects.requireNonNull(location, "location");
 
         if (pos <= 0 || pos > 2) {
@@ -89,7 +89,7 @@ public class ArenaImpl extends BaseButton implements Arena {
     }
 
     @Override
-    public boolean setPosition(final int pos, @Nonnull final Location location) {
+    public boolean setPosition(final int pos, @NotNull final Location location) {
         return setPosition(null, pos, location);
     }
 
@@ -180,7 +180,7 @@ public class ArenaImpl extends BaseButton implements Arena {
     }
 
     @Override
-    public boolean has(@Nonnull final Player player) {
+    public boolean has(@NotNull final Player player) {
         Objects.requireNonNull(player, "player");
         return isUsed() && !match.getPlayerMap().getOrDefault(player, true);
     }

@@ -1,8 +1,8 @@
 package me.realized.duels.api.queue.sign;
 
 import java.util.List;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.bukkit.block.Sign;
 
 /**
@@ -19,7 +19,7 @@ public interface QueueSignManager {
      * @return {@link QueueSign} associated with the {@link Sign} or null if not found.
      */
     @Nullable
-    QueueSign get(@Nonnull final Sign sign);
+    QueueSign get(@NotNull final Sign sign);
 
 
     /**
@@ -27,6 +27,6 @@ public interface QueueSignManager {
      *
      * @return Never-null UnmodifiableList of {@link QueueSign}s that are currently loaded.
      */
-    @Nonnull
+    @NotNull
     List<QueueSign> getQueueSigns();
 }

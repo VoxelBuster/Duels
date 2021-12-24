@@ -1,6 +1,6 @@
 package me.realized.duels.api.event.queue.sign;
 
-import javax.annotation.Nonnull;
+import org.jetbrains.annotations.NotNull;
 import me.realized.duels.api.queue.sign.QueueSign;
 import org.bukkit.entity.Player;
 import org.bukkit.event.HandlerList;
@@ -15,7 +15,7 @@ public class QueueSignRemoveEvent extends QueueSignEvent {
 
     private static final HandlerList handlers = new HandlerList();
 
-    public QueueSignRemoveEvent(@Nonnull final Player source, @Nonnull final QueueSign queueSign) {
+    public QueueSignRemoveEvent(@NotNull final Player source, @NotNull final QueueSign queueSign) {
         super(source, queueSign);
     }
 

@@ -11,7 +11,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
-import javax.annotation.Nonnull;
+import org.jetbrains.annotations.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import me.realized.duels.DuelsPlugin;
@@ -87,7 +87,7 @@ public class UserData implements User {
         }
     }
 
-    @Nonnull
+    @NotNull
     @Override
     public List<MatchInfo> getMatches() {
         return Collections.unmodifiableList(matches);
@@ -99,7 +99,7 @@ public class UserData implements User {
     }
 
     @Override
-    public int getRating(@Nonnull final Kit kit) {
+    public int getRating(@NotNull final Kit kit) {
         return getRatingUnsafe(kit);
     }
 
@@ -109,7 +109,7 @@ public class UserData implements User {
     }
 
     @Override
-    public void resetRating(@Nonnull final Kit kit) {
+    public void resetRating(@NotNull final Kit kit) {
         setRating(kit, defaultRating);
     }
 

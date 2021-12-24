@@ -1,6 +1,6 @@
 package me.realized.duels.api.event;
 
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.Nullable;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
 

@@ -15,8 +15,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import lombok.Getter;
 import me.realized.duels.DuelsPlugin;
 import me.realized.duels.api.event.queue.QueueCreateEvent;
@@ -238,7 +238,7 @@ public class QueueManager implements Loadable, DQueueManager, Listener {
 
     @Nullable
     @Override
-    public Queue get(@Nonnull final Player player) {
+    public Queue get(@NotNull final Player player) {
         Objects.requireNonNull(player, "player");
         return queues.stream().filter(queue -> queue.isInQueue(player)).findFirst().orElse(null);
     }
@@ -278,20 +278,20 @@ public class QueueManager implements Loadable, DQueueManager, Listener {
         return remove(null, kit, bet);
     }
 
-    @Nonnull
+    @NotNull
     @Override
     public List<DQueue> getQueues() {
         return Collections.unmodifiableList(queues);
     }
 
     @Override
-    public boolean isInQueue(@Nonnull final Player player) {
+    public boolean isInQueue(@NotNull final Player player) {
         Objects.requireNonNull(player, "player");
         return queues.stream().anyMatch(queue -> queue.isInQueue(player));
     }
 
     @Override
-    public boolean addToQueue(@Nonnull final Player player, @Nonnull final DQueue queue) {
+    public boolean addToQueue(@NotNull final Player player, @NotNull final DQueue queue) {
         Objects.requireNonNull(player, "player");
         Objects.requireNonNull(queue, "queue");
         return queue(player, (Queue) queue);
@@ -299,7 +299,7 @@ public class QueueManager implements Loadable, DQueueManager, Listener {
 
     @Nullable
     @Override
-    public DQueue removeFromQueue(@Nonnull final Player player) {
+    public DQueue removeFromQueue(@NotNull final Player player) {
         Objects.requireNonNull(player, "player");
         return remove(player);
     }

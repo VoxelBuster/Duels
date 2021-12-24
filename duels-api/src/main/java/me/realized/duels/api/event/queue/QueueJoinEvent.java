@@ -1,7 +1,7 @@
 package me.realized.duels.api.event.queue;
 
 import java.util.Objects;
-import javax.annotation.Nonnull;
+import org.jetbrains.annotations.NotNull;
 import me.realized.duels.api.queue.DQueue;
 import me.realized.duels.api.queue.DQueueManager;
 import org.bukkit.entity.Player;
@@ -21,7 +21,7 @@ public class QueueJoinEvent extends QueueEvent implements Cancellable {
     private final Player source;
     private boolean cancelled;
 
-    public QueueJoinEvent(@Nonnull final Player source, @Nonnull final DQueue queue) {
+    public QueueJoinEvent(@NotNull final Player source, @NotNull final DQueue queue) {
         super(source, queue);
         Objects.requireNonNull(source, "source");
         this.source = source;
@@ -32,7 +32,7 @@ public class QueueJoinEvent extends QueueEvent implements Cancellable {
      *
      * @return Never-null {@link Player} who is joining the {@link DQueue}.
      */
-    @Nonnull
+    @NotNull
     @Override
     public Player getSource() {
         return source;
